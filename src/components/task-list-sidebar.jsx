@@ -67,59 +67,57 @@ export const TaskListSidebar=styled(({className})=>{
     const { currentTaskId } = useParams();
     
     useEffect(()=>{
-        const fetchTaskList=()=>{
-            // *** 전체 task 및 subtask 불러오는 엔드포인트 ***
-            // CORS 정책에 의해 막힘 - No 'Access-Control-Allow-Origin' header is present on the requested resource.
-            // 해결하기!
-            axios.get("http://127.0.0.1:3000/test/")
-            .then((response)=>{
-                console.log(response);
-                if(response.data.success){
-                    setTaskList([...response.data.result]);
-                    console.log(taskList);
-                }
-                else{
-                    console.log("error: success state is false");
-                }
-            })
-            .catch((e)=>{
-                // alert(e);
-                console.log(e);
-            })
-        }
-        fetchTaskList();
-        // setTaskList([
-        //     {
-        //     "task_id": 1,
-        //     "task_name": "데베시 과제",
-        //     "subtask_list": [
-        //         {"subtask_name": "phase1", "subtask_id": 1},
-        //         {"subtask_name": "phase2", "subtask_id": 2}
-        //     ]
-        //     },
-        //     {
-        //         "task_id": 2,
-        //         "task_name": "그래픽스 과제",
-        //         "subtask_list": [
-        //             {"subtask_name": "그래픽스 과제", "subtask_id": 1}
-        //         ]
-        //     },
-        //     {
-        //         "task_id": 3,
-        //         "task_name": "멀코프 과제",
-        //         "subtask_list": [
-        //             {"subtask_name": "멀코프 과제", "subtask_id": 1}
-        //         ]
-        //     },
-        //     {
-        //         "task_id": 4,
-        //         "task_name": "기머러 과제",
-        //         "subtask_list": [
-        //             {"subtask_name": "문제1", "subtask_id": 1},
-        //             {"subtask_name": "문제2", "subtask_id": 2}
-        //         ]
+        // const fetchTaskList=()=>{
+        //     // *** 전체 task 및 subtask 불러오는 엔드포인트 ***            
+        //     axios.get("http://127.0.0.1:3000/test/") //proxy 설정함
+        //     .then((response)=>{
+        //         console.log(response);
+        //         if(response.data.success){
+        //             setTaskList([...response.data.result]);
+        //             console.log(taskList);
         //         }
-        // ]);
+        //         else{
+        //             console.log("error: success state is false");
+        //         }
+        //     })
+        //     .catch((e)=>{
+        //         // alert(e);
+        //         console.log(e);
+        //     })
+        // }
+        // fetchTaskList();
+        setTaskList([
+            {
+            "task_id": 1,
+            "task_name": "데베시 과제",
+            "subtask_list": [
+                {"subtask_name": "phase1", "subtask_id": 1},
+                {"subtask_name": "phase2", "subtask_id": 2}
+            ]
+            },
+            {
+                "task_id": 2,
+                "task_name": "그래픽스 과제",
+                "subtask_list": [
+                    {"subtask_name": "그래픽스 과제", "subtask_id": 1}
+                ]
+            },
+            {
+                "task_id": 3,
+                "task_name": "멀코프 과제",
+                "subtask_list": [
+                    {"subtask_name": "멀코프 과제", "subtask_id": 1}
+                ]
+            },
+            {
+                "task_id": 4,
+                "task_name": "기머러 과제",
+                "subtask_list": [
+                    {"subtask_name": "문제1", "subtask_id": 1},
+                    {"subtask_name": "문제2", "subtask_id": 2}
+                ]
+                }
+        ]);
     }, []);
     
     

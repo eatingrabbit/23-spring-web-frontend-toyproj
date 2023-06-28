@@ -4,24 +4,32 @@ import axios from "axios";
 import styled from "styled-components";
 
 const TimeBlockDiv=styled.div`
+    //text-align: center;
+    width: 95%;
+    border-radius:5px;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    border-radious: 30%;
+    background-color: #001233;
+    color: #8f96a3;
+    z-index: 2;
+    
     position: absolute;
-    top: calc(4rem + ${(props)=>{return props.yPos}}px);
-    height: ${(props)=>{return props.height}}px;
+    top: calc(3rem + ${(props)=>{return props.yPos}}rem * 3 + 3px); //DateTextBlock 3rem, 한칸당 3rem, 위아래 padding 3px
+    height: calc(${(props)=>{return props.height}}rem * 3 - 6px);   //DateTextBlock 3rem, 한칸당 3rem, 위아래 padding 3px
 `;
 const TaskNameSpan=styled.span`
-    color: #8f96a3;
     font-size: 0.9rem;
 `;
 const SubtaskNameSpan=styled.span`
-    color: #8f96a3;
     font-size: 0.7rem;
 `;
 
 const TimeBlock=styled(({className, timeBlock})=>{
     const startTime=new Date(timeBlock.start_time);
     const endTime=new Date(timeBlock.end_time);
-    const requiredTimezone=(endTime.getTime()-startTime.getTime())/(60*1000);
-    const yPos=((startTime.getHours()-6)*12 + startTime.getMinutes())*5;
+    const requiredTimezone=(endTime.getTime()-startTime.getTime())/(60*60*1000);   //시간단위
+    const yPos=((startTime.getHours()-6)*60 + startTime.getMinutes())/60;          //시간단위
     console.log("requiredTimezone:", requiredTimezone);
     console.log("ypos: ",yPos);
     
@@ -31,25 +39,18 @@ const TimeBlock=styled(({className, timeBlock})=>{
         <TaskNameSpan>{timeBlock.task_name}</TaskNameSpan> <br/>
         <SubtaskNameSpan>{timeBlock.subtask_name}</SubtaskNameSpan>
     </TimeBlockDiv>
-})`
-    //text-align: center;
-    width: 100%;
-    border-radius:5px;
-    box-sizing: border-box;
-    padding: 0.5rem;
-    border-radious: 30%;
-    background-color: #001233;
-    color: #fff;
-`;
+})``;
 
 const DateTextBlock=styled(({className, date})=>{   //date.year, date.month, date.date
     return <div className={className}>{date.month+1}.{date.date}</div>;
 })`
     text-align: center;
     background-color: #efe0ca;
+    //background-color: #fff;
     color: #001233;
-    height: 4rem;
-    font-size: 3rem;
+    width: 100%;
+    height: 3rem;
+    font-size: 2rem;
 `;
 
 // const DeadlineTimeBlock=styled(({className, deadline})=>{
@@ -75,8 +76,13 @@ export const DateBlock=styled(({className, date, timeBlockList})=>{
     box-sizing: border-box;
     width: 10rem;
     min-width: 10rem;
-    height: 100%;
+    //height: 100%;
+    height: calc(3rem * (24 - 6 + 1) + 3rem);
     color: #001233;
     background-color: #fff;
     border-right: 1px solid #ddd;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;

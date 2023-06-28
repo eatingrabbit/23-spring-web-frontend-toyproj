@@ -4,6 +4,7 @@ import axios from "axios";
 import styled from "styled-components";
 
 import { DateBlock } from "./date-block-item";
+import { TimeStandard } from "./time-standard";
 
 function stringToKrTime(curr){
     const utc=curr.getTime()+(curr.getTimezoneOffset()*60*1000);
@@ -52,7 +53,7 @@ export const DateBlockList=styled(({className})=>{
                 "subtask_name": "phase1"
             },
             {
-                "start_time": "2023-06-13 13:00:00",
+                "start_time": "2023-06-13 07:00:00",
                 "end_time": "2023-06-13 14:00:00",
                 "task_id": 1,
                 "task_name": "데베시 과제",
@@ -60,8 +61,8 @@ export const DateBlockList=styled(({className})=>{
                 "subtask_name": "phase2"
             },
             {
-                "start_time": "2023-06-13 15:00:00",
-                "end_time": "2023-06-13 19:00:00",
+                "start_time": "2023-06-13 15:20:00",
+                "end_time": "2023-06-14 01:00:00",
                 "task_id": 1,
                 "task_name": "데베시 과제",
                 "subtask_id": 1,
@@ -70,7 +71,7 @@ export const DateBlockList=styled(({className})=>{
         ]);
     }, []);
     
-    const deadlineTime=stringToKrTime(new Date("2023-06-26 23:59:59"));
+    const deadlineTime=stringToKrTime(new Date("2023-07-03 23:59:59"));
     
     // const currentTime=stringToKrTime(new Date());
     const currentTime=stringToKrTime(new Date("2023-06-11 00:00:00"));
@@ -83,15 +84,21 @@ export const DateBlockList=styled(({className})=>{
     
     const dateBlockRendering=()=>{
         const result=[];
-        for(const today=new Date(currentTimeYear, currentTimeMonth, currentTimeDate, 6,0,0);
+        for(const today=new Date(currentTimeYear, currentTimeMonth, currentTimeDate, 6,0,0);    //today: 현재 날짜 오전 6시
             today<deadlineTime ; today.setDate(today.getDate()+1))
         {
             const tomorrow=new Date(today);
-            tomorrow.setDate(tomorrow.getDate()+1);
+            tomorrow.setDate(tomorrow.getDate()+1);                                             //tomorrow: 내일 오전 6시
             //console.log("today: ",today);
             //console.log("tomorrow: ",tomorrow);
+            
+            // 특정 날짜의 timeBlock들만 모은 list
             const timeBlockAtParticularDateList = timeBlockList.filter((timeBlock)=>{
                 const timeBlockStartTime=stringToKrTime(new Date(timeBlock.start_time))
+                //filter:
+                // today와 tomorrow 사이 timeBlockStartTime가 있다
+                // timeBlock의 task_id가 현재 페이지의 currentTaskId이다
+                // timeBlock의 subtask_id가 현재 페이지의 currentSubtaskId이거나, currentSubtaskId가 undefined인 경우
                 return timeBlockStartTime >= today && timeBlockStartTime <tomorrow && (timeBlock.task_id==currentTaskId && (timeBlock.subtask_id==currentSubtaskId || currentSubtaskId==undefined));
             })
             result.push(<DateBlock date={{year: today.getFullYear(), month: today.getMonth(), date: today.getDate()}} timeBlockList={[...timeBlockAtParticularDateList]}></DateBlock>)
@@ -103,14 +110,13 @@ export const DateBlockList=styled(({className})=>{
     
     //console.log("exaple: ",new Date({...timeBlockList[0]}.start_time) < today);
     
-    
-    
     //console.log(timeBlockAtParticularDateList);
     
     return (
         <div className={className}>
             {/* {currentTaskId} */}
             {/* {currentSubtaskId} */}
+            <TimeStandard></TimeStandard>
             {dateBlockRendering()}
         </div>
     )
@@ -119,7 +125,11 @@ export const DateBlockList=styled(({className})=>{
     height: 100%;
     background-color: #fff;
     display:flex;
+    //flex-direction: column;
+    
     overflow-x:scroll;
-    overflow-y:hidden;
+    overflow-y:scroll;
     //font-size: 10rem;
+    
+    position: relative;
 `;
