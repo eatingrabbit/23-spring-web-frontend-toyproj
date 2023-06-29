@@ -4,7 +4,7 @@
 
 ## 완성된 기능
 
-## Todo List
+## 📝 Todo List
 
 #### 23.06.28
 
@@ -19,14 +19,13 @@
 
 1. TimeBlock 색 바꾸기
 
-1. ~TimeStandard border랑 text 분리~ 06.30 완료
+1. ✅ ~TimeStandard border랑 text 분리~ 06.30 완료
 
-1. ~DateTextBlock position: sticky 처리~
-+ 06.30 완료
+1. ✅ ~DateTextBlock position: sticky 처리~ 06.30 완료
 
 1. TimeBlock 길이가 길어서 dayEndTime을 넘어갈 경우 overflow: hidden 처리
 
-1. ~date-block-item.jsx에서 css 코드 묶어서 정리하기~ 06.28 완료
+1. ✅ ~date-block-item.jsx에서 css 코드 묶어서 정리하기~ 06.28 완료
 
 #### 23.06.30
 
