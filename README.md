@@ -11,7 +11,7 @@
 1. ReadMe 수정 06.30 부분완료
 
 1. 보여줄 시간 시작시간, 보여줄 시간 끝시간 변수로 빼서 화면에 보이는 시간대 조정하기
-~ TimeStandardTextBlock, TimeBlockDiv
+: TimeStandardTextBlock, TimeBlockDiv
    - option 1) overflow-y: scroll + 한칸 크기는 3rem
    - option 2) overflow-y: hidden + 한칸 크기는 시작시간 끝시간 맞춰서 조정
 
