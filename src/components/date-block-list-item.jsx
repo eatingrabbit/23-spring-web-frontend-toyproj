@@ -4,7 +4,7 @@ import axios from "axios";
 import styled from "styled-components";
 
 import { DateBlock } from "./date-block-item";
-import { TimeStandard } from "./time-standard";
+import { TimeStandardRowList, TimeStandardNumberList } from "./time-standard";
 
 function stringToKrTime(curr){
     const utc=curr.getTime()+(curr.getTimezoneOffset()*60*1000);
@@ -116,7 +116,8 @@ export const DateBlockList=styled(({className})=>{
         <div className={className}>
             {/* {currentTaskId} */}
             {/* {currentSubtaskId} */}
-            <TimeStandard></TimeStandard>
+            <TimeStandardRowList></TimeStandardRowList>
+            <TimeStandardNumberList></TimeStandardNumberList>
             {dateBlockRendering()}
         </div>
     )

@@ -1,5 +1,6 @@
 <<Todo List>>
 
+23.06.28
 0. ReadMe 수정
 
 1. 보여줄 시간 시작시간, 보여줄 시간 끝시간 변수로 빼서
@@ -18,3 +19,4 @@
 5. TimeBlock 길이가 길어서 dayEndTime을 넘어갈 경우 overflow: hidden 처리
 
 5. date-block-item.jsx에서 css 코드 묶어서 정리하기
+

@@ -51,6 +51,9 @@ const DateTextBlock=styled(({className, date})=>{   //date.year, date.month, dat
     width: 100%;
     height: 3rem;
     font-size: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 `;
 
 // const DeadlineTimeBlock=styled(({className, deadline})=>{
