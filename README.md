@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Task Scheduler
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+소요시간과 데드라인 설정으로 자동으로 시간을 분배해주는 스케쥴러 프로젝트
 
-## Available Scripts
+## 완성된 기능
 
-In the project directory, you can run:
+## Todo List
 
-### `npm start`
+#### 23.06.28
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. ReadMe 수정
++ 06.30 부분완료
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. 보여줄 시간 시작시간, 보여줄 시간 끝시간 변수로 빼서
+   화면에 보이는 시간대 조정하기
+   : TimeStandardTextBlock, TimeBlockDiv
+   -option 1) overflow-y: scroll + 한칸 크기는 3rem
+   -option 2) overflow-y: hidden + 한칸 크기는 시작시간 끝시간 맞춰서 조정
+    =>현재 option 1로 구현
 
-### `npm test`
+1. TimeBlock 색 바꾸기
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. ~TimeStandard border랑 text 분리~
++ 06.30 완료
 
-### `npm run build`
+1. ~DateTextBlock position: sticky 처리~
++ 06.30 완료
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. TimeBlock 길이가 길어서 dayEndTime을 넘어갈 경우 overflow: hidden 처리
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. ~date-block-item.jsx에서 css 코드 묶어서 정리하기~
++ 06.28 완료
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### 23.06.30
 
-### `npm run eject`
+1. TimeBlock StartTime이 datStartTime을 넘어갈 경우 TimeBlock 가져오는 기준이 StartTime 기준이므로 오류 -> 해결 및 overflow 처리
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. 개발 기록 문서화 시작
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. TimeBlock 길이 너무 짧을 시 텍스트 안보이게 -> 커서 올렸을때 보이게
