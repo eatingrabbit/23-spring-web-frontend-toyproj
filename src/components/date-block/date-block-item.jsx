@@ -36,7 +36,7 @@ const TimeBlock=styled(({className, timeBlock})=>{
     //console.log(requiredTimezone);
     
     return <TimeBlockDiv className={className} height={requiredTimezone} yPos={yPos}>
-        <TaskNameSpan>{timeBlock.task_name}</TaskNameSpan> <br/>
+        {/* <TaskNameSpan>{timeBlock.task_name}</TaskNameSpan> <br/> */}
         <SubtaskNameSpan>{timeBlock.subtask_name}</SubtaskNameSpan>
     </TimeBlockDiv>
 })``;

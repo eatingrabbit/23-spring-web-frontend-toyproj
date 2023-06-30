@@ -3,12 +3,14 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 
-import { CurrentTaskIdContext } from "../context/current-task-context";
+//import { CurrentTaskIdContext } from "../../context/current-task-context";
 
 import ListGroup from 'react-bootstrap/ListGroup';
 import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faList, faCheck } from '@fortawesome/free-solid-svg-icons'
+
+import { TaskCreateButton } from "./task-create-button";
 
 const StyledListGroup=styled(ListGroup)``;
 const StyledListGroupItem=styled(ListGroup.Item)``;
@@ -24,8 +26,11 @@ const CurrentTaskIcon=styled(({className, taskId, currentTaskId, subtaskId, curr
         }
     </>);
 })`
-    display: inline-block;
     width: 1.5rem;
+    display: inline-block;
+    position: absolute;
+    right: 0.5rem;
+    color: #ff595a;
     font-size: 0.8rem;
 `;
 
@@ -52,7 +57,6 @@ const SubtaskListGroup=styled(({className, taskId, subtaskList})=>{
         background-color: #00091a;
         padding-left: 20px;
     }
-
 `;
 
 export const TaskListSidebar=styled(({className})=>{
@@ -138,6 +142,7 @@ export const TaskListSidebar=styled(({className})=>{
                     </>)
                 })}
             </StyledListGroup>
+            <TaskCreateButton></TaskCreateButton>
         </div>
     )
 })`
@@ -154,11 +159,6 @@ export const TaskListSidebar=styled(({className})=>{
         padding: 5px 1rem;
     }
     ${StyledListGroupItem}:hover{
-        color: #ff595a;
-    }
-    ${CurrentTaskIcon}{
-        position: absolute;
-        right: 0.5rem;
         color: #ff595a;
     }
     //positon: fixed;
