@@ -2,6 +2,9 @@
 
 소요시간과 데드라인 설정으로 자동으로 시간을 분배해주는 스케쥴러 프로젝트
 
+#### [🔗github page link](https://eatingrabbit.github.io/23-spring-web-frontend-toyproj/)
+
+
 ## 🎈 완성된 기능
 
 ## 📝 Todo List
