@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 
@@ -19,7 +18,6 @@ function stringToKrTime(curr){
 
 export const DateBlockList=styled(({className})=>{
     const [timeBlockList, setTimeBlockList]=useState([]);
-    const { currentTaskId, currentSubtaskId } = useParams();
     
     useEffect(()=>{
         // const fetchTaskList=()=>{
@@ -39,10 +37,22 @@ export const DateBlockList=styled(({className})=>{
             {
                 "start_time": "2023-06-12 06:00:00",
                 "end_time": "2023-06-12 10:00:00",
+                "task_id": null,
+                "task_name": null,
+                "subtask_id": null,
+                "subtask_name": null,
+                "nontask_id": 1,
+                "nontask_name": "학교"
+            },
+            {
+                "start_time": "2023-06-12 16:00:00",
+                "end_time": "2023-06-12 20:00:00",
                 "task_id": 1,
                 "task_name": "데베시 과제",
                 "subtask_id": 2,
-                "subtask_name": "phase2"
+                "subtask_name": "phase2",
+                "nontask_id": null,
+                "nontask_name": null
             },
             {
                 "start_time": "2023-06-12 10:00:00",
@@ -50,15 +60,29 @@ export const DateBlockList=styled(({className})=>{
                 "task_id": 1,
                 "task_name": "데베시 과제",
                 "subtask_id": 1,
-                "subtask_name": "phase1"
+                "subtask_name": "phase1",
+                "nontask_id": null,
+                "nontask_name": null
             },
             {
-                "start_time": "2023-06-13 07:00:00",
+                "start_time": "2023-06-13 06:00:00",
+                "end_time": "2023-06-13 10:00:00",
+                "task_id": null,
+                "task_name": null,
+                "subtask_id": null,
+                "subtask_name": null,
+                "nontask_id": 1,
+                "nontask_name": "학교"
+            },
+            {
+                "start_time": "2023-06-13 12:00:00",
                 "end_time": "2023-06-13 14:00:00",
                 "task_id": 1,
                 "task_name": "데베시 과제",
                 "subtask_id": 2,
-                "subtask_name": "phase2"
+                "subtask_name": "phase2",
+                "nontask_id": null,
+                "nontask_name": null
             },
             {
                 "start_time": "2023-06-13 15:20:00",
@@ -66,8 +90,30 @@ export const DateBlockList=styled(({className})=>{
                 "task_id": 1,
                 "task_name": "데베시 과제",
                 "subtask_id": 1,
-                "subtask_name": "phase1"
-            }
+                "subtask_name": "phase1",
+                "nontask_id": null,
+                "nontask_name": null
+            },
+            {
+                "start_time": "2023-06-14 06:00:00",
+                "end_time": "2023-06-14 10:00:00",
+                "task_id": null,
+                "task_name": null,
+                "subtask_id": null,
+                "subtask_name": null,
+                "nontask_id": 1,
+                "nontask_name": "학교"
+            },
+            {
+                "start_time": "2023-06-14 13:20:00",
+                "end_time": "2023-06-14 23:00:00",
+                "task_id": 2,
+                "task_name": "그래픽스 과제",
+                "subtask_id": null,
+                "subtask_name": null,
+                "nontask_id": null,
+                "nontask_name": null
+            },
         ]);
     }, []);
     
@@ -97,9 +143,7 @@ export const DateBlockList=styled(({className})=>{
                 const timeBlockStartTime=stringToKrTime(new Date(timeBlock.start_time))
                 //filter:
                 // today와 tomorrow 사이 timeBlockStartTime가 있다
-                // timeBlock의 task_id가 현재 페이지의 currentTaskId이다
-                // timeBlock의 subtask_id가 현재 페이지의 currentSubtaskId이거나, currentSubtaskId가 undefined인 경우
-                return timeBlockStartTime >= today && timeBlockStartTime <tomorrow && (timeBlock.task_id==currentTaskId && (timeBlock.subtask_id==currentSubtaskId || currentSubtaskId==undefined));
+                return timeBlockStartTime >= today && timeBlockStartTime <tomorrow;
             })
             result.push(<DateBlock date={{year: today.getFullYear(), month: today.getMonth(), date: today.getDate()}} timeBlockList={[...timeBlockAtParticularDateList]}></DateBlock>)
         }
