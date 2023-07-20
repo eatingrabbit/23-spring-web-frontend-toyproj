@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/23-spring-web-frontend-toyproj/static/css/main.073c9b0a.css",
-    "main.js": "/23-spring-web-frontend-toyproj/static/js/main.56b5012c.js",
+    "main.js": "/23-spring-web-frontend-toyproj/static/js/main.8da0dbc0.js",
     "static/js/787.e3e520d7.chunk.js": "/23-spring-web-frontend-toyproj/static/js/787.e3e520d7.chunk.js",
     "static/media/logo.svg": "/23-spring-web-frontend-toyproj/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/23-spring-web-frontend-toyproj/index.html",
     "main.073c9b0a.css.map": "/23-spring-web-frontend-toyproj/static/css/main.073c9b0a.css.map",
-    "main.56b5012c.js.map": "/23-spring-web-frontend-toyproj/static/js/main.56b5012c.js.map",
+    "main.8da0dbc0.js.map": "/23-spring-web-frontend-toyproj/static/js/main.8da0dbc0.js.map",
     "787.e3e520d7.chunk.js.map": "/23-spring-web-frontend-toyproj/static/js/787.e3e520d7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.56b5012c.js"
+    "static/js/main.8da0dbc0.js"
   ]
 }
